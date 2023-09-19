@@ -4,3 +4,6 @@ CREATE TABLE "posts" (
 	"title" TEXT NOT NULL,
 	"body" TEXT NOT NULL
 )
+
+ALTER TABLE posts ADD "createdAt" DATE;
+ALTER TABLE posts RENAME COLUMN "body" TO "content";
