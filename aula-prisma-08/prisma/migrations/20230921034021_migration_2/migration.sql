@@ -1,4 +1,12 @@
 -- CreateTable
+CREATE TABLE "teste" (
+    "id" SERIAL NOT NULL,
+    "texto" VARCHAR(50) NOT NULL,
+
+    CONSTRAINT "teste_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "students" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
