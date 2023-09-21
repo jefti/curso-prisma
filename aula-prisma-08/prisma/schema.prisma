@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model teste {
+  id    Int    @id @default(autoincrement())
+  texto String @db.VarChar(50)
+}
+
+model Student {
+  id    Int    @id @default(autoincrement())
+  name  String
+  class String
+  job   Job?   @relation(fields: [jobId], references: [id])
+  jobId Int?
+
+  @@map("students")
+}
+
+model Job {
+  id      Int       @id @default(autoincrement())
+  title   String
+  salary  Int
+  Student Student[]
+
+  @@map("jobs")
+}
